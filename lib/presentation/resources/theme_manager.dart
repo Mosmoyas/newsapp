@@ -34,6 +34,13 @@ ThemeData getApplicationTheme() {
         titleTextStyle: getRegularStyle(
             color: ColorManager.white, fontSize: FontSize.fs16)),
 
+    //BottomNavigationBartheme
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: ColorManager.white,
+        elevation: 20.0,
+        backgroundColor: ColorManager.primary,
+        unselectedItemColor: ColorManager.darkGrey),
     //Button Theme
     buttonTheme: ButtonThemeData(
         shape: const StadiumBorder(),

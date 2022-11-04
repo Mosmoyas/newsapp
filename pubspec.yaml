@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   observer: ^0.0.1
   flutter_observer: ^2.0.0
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:

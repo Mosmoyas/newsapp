@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newsapp/network/remote/dio_helper.dart';
 import 'package:newsapp/presentation/resources/theme_manager.dart';
 import 'presentation/resources/routes_manager.dart';
 
 void main() {
   Bloc.observer;
+  DioHelper.init();
   runApp(const MyApp());
 }
 

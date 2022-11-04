@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ScienceScreen extends StatelessWidget {
-  const ScienceScreen({super.key});
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Center(child:  Text("ScienceScreen")),
+      child: const Center(child: Text("SettingsScreen")),
     );
   }
 }
