@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'layout/news_app.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newsapp/presentation/resources/theme_manager.dart';
+import 'presentation/resources/routes_manager.dart';
 
 void main() {
+  Bloc.observer;
   runApp(const MyApp());
 }
 
@@ -15,11 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News App ',
-      theme: ThemeData(
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const NewsLayout(),
+      theme: getApplicationTheme(),
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: Routes.newsLayout,
+      // home: Text(Routes.newsLayout),
     );
   }
 }

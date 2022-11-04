@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import 'color_manager.dart';
 import 'font_manager.dart';
 import 'styles_manager.dart';
@@ -22,6 +24,9 @@ ThemeData getApplicationTheme() {
 
     //appBarTheme
     appBarTheme: AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: ColorManager.white,
+            statusBarBrightness: Brightness.dark),
         color: ColorManager.primary,
         centerTitle: true,
         elevation: AppSize.s4,
