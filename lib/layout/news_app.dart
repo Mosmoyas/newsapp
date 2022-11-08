@@ -10,7 +10,10 @@ class NewsLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewsCubit(),
+      create: (context) => NewsCubit()
+        ..getSports()
+        ..getscience()
+        ..getBusiness(),
       child: BlocConsumer<NewsCubit, NewsStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -21,9 +24,21 @@ class NewsLayout extends StatelessWidget {
               actions: [
                 IconButton(
                     onPressed: () {
-                      cubit.getBusiness();
+                      NewsCubit.get(context).changeAppMode();
                     },
-                    icon: const Icon(Icons.search)),
+                    icon: Icon(
+                      Icons.search,
+                      color: Theme.of(context).iconTheme.color,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      NewsCubit.get(context).changeAppMode();
+                      print("Mode is Changed");
+                    },
+                    icon: Icon(
+                      Icons.brightness_4_outlined,
+                      color: Theme.of(context).iconTheme.color,
+                    ))
               ],
             ),
             body: cubit.Screens[cubit.currentIndex],

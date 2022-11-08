@@ -4,32 +4,40 @@ class NewsIntialState extends NewsStates {}
 
 class NewsBottomNavState extends NewsStates {}
 
-class NewsLoadingState extends NewsStates {}
+class NewsAppModeChange extends NewsStates {}
+
+class NewsGetBusinessLoadingState extends NewsStates {}
 
 class NewsGetBusinessSuccessState extends NewsStates {}
 
-class NewsGetBusinessErrortate extends NewsStates {
-  String error;
-  NewsGetBusinessErrortate(this.error);
+class NewsGetBusinessErrorState extends NewsStates {
+  final String error;
+  NewsGetBusinessErrorState(this.error);
 }
+
+class NewsGetSportLoadingState extends NewsStates {}
 
 class NewsGetSportsSuccessState extends NewsStates {}
 
-class NewsGetSportsErrortate extends NewsStates {
-  String error;
-  NewsGetSportsErrortate(this.error);
+class NewsGetSportsErrorState extends NewsStates {
+  final String error;
+  NewsGetSportsErrorState(this.error);
 }
+
+class NewsGetScienceLoadingState extends NewsStates {}
 
 class NewsGetSciencesSuccessState extends NewsStates {}
 
-class NewsGetSciencesErrortate extends NewsStates {
-  String error;
-  NewsGetSciencesErrortate(this.error);
+class NewsGetSciencesErrorState extends NewsStates {
+  final String error;
+  NewsGetSciencesErrorState(this.error);
 }
+
+class NewsGetSettingsLoadingState extends NewsStates {}
 
 class NewsGetSettingsSuccessState extends NewsStates {}
 
-class NewsGetSettingsErrortate extends NewsStates {
-  String error;
-  NewsGetSettingsErrortate(this.error);
+class NewsGetSettingsErrorState extends NewsStates {
+  final String error;
+  NewsGetSettingsErrorState(this.error);
 }

@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:newsapp/modules/science/science_screen.dart';
-import '../../modules/sport/sport_screen.dart';
+import 'package:newsapp/shared/presentation/strings_manager.dart';
+import '../../../modules/sport/sport_screen.dart';
 
-import '../../layout/news_app.dart';
-import '../../modules/buisness/business_screen.dart';
-import 'strings_manager.dart';
+import '../../../layout/news_app.dart';
+import '../../../modules/buisness/business_screen.dart';
 
 class Routes {
   static const String newsLayout = "/";
@@ -36,9 +36,9 @@ class RouteGenerator {
     return MaterialPageRoute(
         builder: (_) => Scaffold(
               appBar: AppBar(
-                title: const Text(StringManager.noRountFound),
+                title: const Text(AppString.noRountFound),
               ),
-              body: const Text(StringManager.noRountFound),
+              body: const Text(AppString.noRountFound),
             ));
   }
 }

@@ -30,7 +30,7 @@ TextStyle getMediumStyle(
 
 // Regular Style
 TextStyle getRegularStyle(
-    {double fontSize = FontSize.fs12, required Color color}) {
+    {double fontSize = FontSize.fs16, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.regular, color);
 }
 
