@@ -6,6 +6,7 @@ import 'package:newsapp/layout/cubit/state.dart';
 import 'package:newsapp/modules/buisness/business_screen.dart';
 import 'package:newsapp/modules/science/science_screen.dart';
 import 'package:newsapp/modules/sport/sport_screen.dart';
+import 'package:newsapp/network/local/cache_helper.dart';
 import 'package:newsapp/network/remote/dio_helper.dart';
 
 import '../../modules/settings/settings_screen.dart';
@@ -39,9 +40,20 @@ class NewsCubit extends Cubit<NewsStates> {
 
   bool isDark = false;
 
-  void changeAppMode() {
-    isDark = !isDark;
-    emit(NewsAppModeChange());
+  void changeAppMode({bool? fromShared}) {
+    //if the fromshared is not null i.e has a value then save this value in isDark otherwise flip the value of isDark
+    if (fromShared != null) {
+      isDark = fromShared;
+      emit(NewsAppModeChange());
+    } else {
+      isDark = !isDark;
+
+      // we are saving the value of the bool variable isDark in CacheHelper
+      CacheHelper.putData(key: "isDark", value: isDark).then((value) {
+        emit(NewsAppModeChange());
+      });
+      emit(NewsAppModeChange());
+    }
   }
 
   List<dynamic> business = [];
