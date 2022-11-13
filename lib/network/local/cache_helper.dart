@@ -9,13 +9,13 @@ class CacheHelper {
   }
 
 //Set value Key Value to the method putData which will be running by changing in Cubit class
-  static Future<bool?> putData(
+  static Future<bool?> setBoolean(
       {required String key, required bool value}) async {
     return await sharedPreferences?.setBool(key, value);
   }
 
 //get Value which will be add to the event button
-  static bool? getData({required String key}) {
+  static bool? getBoolean({required String key}) {
     return sharedPreferences?.getBool(key);
   }
 }

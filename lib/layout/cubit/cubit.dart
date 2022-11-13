@@ -44,15 +44,15 @@ class NewsCubit extends Cubit<NewsStates> {
     //if the fromshared is not null i.e has a value then save this value in isDark otherwise flip the value of isDark
     if (fromShared != null) {
       isDark = fromShared;
-      emit(NewsAppModeChange());
+      // emit(NewsAppModeChange());
     } else {
       isDark = !isDark;
 
       // we are saving the value of the bool variable isDark in CacheHelper
-      CacheHelper.putData(key: "isDark", value: isDark).then((value) {
+      CacheHelper.setBoolean(key: "isDark", value: isDark).then((value) {
         emit(NewsAppModeChange());
       });
-      emit(NewsAppModeChange());
+      // emit(NewsAppModeChange());
     }
   }
 

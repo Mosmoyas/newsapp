@@ -15,7 +15,7 @@ class SportScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var list = NewsCubit.get(context).sport;
-        return conditionalBuilder(list, NewsCubit.get(context).isDark);
+        return conditionalBuilder(list,context);
         ;
       },
     );

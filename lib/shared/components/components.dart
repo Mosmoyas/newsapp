@@ -15,7 +15,7 @@ Widget sbuildArticleItems() {
   );
 }
 
-Widget buildArticleItems(article, dark) {
+Widget buildArticleItems(article, context) {
   return Padding(
     padding: const EdgeInsets.all(20),
     child: Row(children: [
@@ -46,17 +46,26 @@ Widget buildArticleItems(article, dark) {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
-                child: Text(article['title'],
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: getBoldStyle(
-                        color:
-                            dark ? ColorManager.darkGrey1 : ColorManager.white,
-                        fontSize: AppSize.s18)),
-              ),
+                  child: Text(article['title'],
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold))
+                  // style: getBoldStyle(
+                  //     color:
+                  //         dark ? ColorManager.darkGrey1 : ColorManager.white,
+                  //     fontSize: AppSize.s18)),
+                  ),
               Text(article['publishedAt'],
-                  style: getLightStyle(
-                      color: ColorManager.lightGrey, fontSize: AppSize.s14))
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300))
+
+              // getLightStyle(
+              //     color: ColorManager.lightGrey, fontSize: AppSize.s14))
             ],
           ),
         ),
@@ -65,13 +74,14 @@ Widget buildArticleItems(article, dark) {
   );
 }
 
-Widget conditionalBuilder(list,dark) => ConditionalBuilder(
+Widget conditionalBuilder(list, context) => ConditionalBuilder(
       // condition: state is! NewsGetBusinessLoadingState,
       condition: list.isNotEmpty,
 
       builder: (context) => ListView.separated(
           physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) => buildArticleItems(list[index],dark),
+          itemBuilder: (context, index) =>
+              buildArticleItems(list[index], context),
           separatorBuilder: (context, index) =>
               const Divider(height: 10, thickness: 2),
           itemCount: list.length),

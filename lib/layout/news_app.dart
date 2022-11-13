@@ -23,9 +23,7 @@ class NewsLayout extends StatelessWidget {
               title: const Text("New App"),
               actions: [
                 IconButton(
-                    onPressed: () {
-                      NewsCubit.get(context).changeAppMode();
-                    },
+                    onPressed: () {},
                     icon: Icon(
                       Icons.search,
                       color: Theme.of(context).iconTheme.color,
@@ -33,7 +31,7 @@ class NewsLayout extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       NewsCubit.get(context).changeAppMode();
-                      print("Mode is Changed");
+                      print("Mode is Changed to ${NewsCubit.get(context).isDark}");
                     },
                     icon: Icon(
                       Icons.brightness_4_outlined,
